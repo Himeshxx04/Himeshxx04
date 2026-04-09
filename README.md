@@ -1,6 +1,6 @@
 # Hi, I'm Himesh Pandey 👋
 
-**Backend Engineer · AI Systems · Final Year ECE @ PES University, Bangalore (2026)**
+**Backend Engineer · AI Systems · Final Year  @ PES University, Bangalore (2026)**
 
 I build production-grade backend systems with a focus on **LLM integration and AI pipelines**. My primary work is around RAG architectures, multi-agent LLM workflows, and cost-optimized inference systems using Python.
 
