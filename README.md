@@ -1,57 +1,66 @@
 # Hi, I'm Himesh Pandey 👋
 
-**Backend Engineer · AI Systems · Final Year  @ PES University, Bangalore (2026)**
+**Backend Engineer · AI Systems · PES University, Bengaluru (2026)**
 
-I build production-grade backend systems with a focus on **LLM integration and AI pipelines**. My primary work is around RAG architectures, multi-agent LLM workflows, and cost-optimized inference systems using Python.
+I build production-grade backend systems with a focus on **LLM integration and AI pipelines**. My primary work is around multi-agent workflows, real-time voice AI, RAG architectures, and cost-optimized inference systems using Python.
+
+📍 Bengaluru, India · Open to **full-time roles** (Backend / AI Engineering)  
+📫 [pandeyhimesh09@gmail.com](mailto:pandeyhimesh09@gmail.com) · [LinkedIn](https://linkedin.com/in/himesh-pandey-66968a213) · [GitHub](https://github.com/Himeshxx04)
 
 ---
 
-## 🔬 Featured Project — RAG Pipeline Optimizer
+## 🔥 Featured Project — MCP Artifact Store
 
-> A production-ready Retrieval-Augmented Generation system with multi-pipeline generation, automated LLM-based evaluation, and cost-aware response selection.
+> An open-source MCP server for shared artifact storage across multi-agent LLM pipelines — deployed to production.
 
-**What makes it different from typical RAG demos:**
+**The problem:** Every time Agent A hands off to Agent B in a multi-agent pipeline, it dumps the full payload into shared state. 10 agents = 10x redundant context. This bloats token usage and breaks context windows.
 
-- **Multi-pipeline generation** — runs strict, citation-based, and explanatory pipelines in parallel
-- **Judge model evaluation** — an LLM scores each answer on quality, groundedness, and structure
-- **Cost + latency optimizer** — weighted scoring (`0.6 × quality · 0.2 × cost · 0.2 × latency`) selects the best response automatically
-- **Guardrails** — hallucination auto-rejection, similarity threshold filtering, token-budget enforcement
-- **Full observability** — prompt tokens, completion tokens, latency, cost estimation, and judge scores all logged per query
+**What I built:**
+- **Shared artifact storage** via MCP protocol — agents store and retrieve artifacts by ID, reducing inter-agent context payload from **~1.6KB to 12 bytes** per handoff
+- **Dual-interface system** — FastAPI HTTP endpoints for a React dashboard + FastMCP tools for LangGraph agents, backed by a single PostgreSQL service layer
+- **Access control + audit logging** — per-artifact permissions, TTL enforcement, creator-only deletion with full audit trail
+- **Fully deployed** — FastAPI + FastMCP on Render, PostgreSQL on Render managed DB, React dashboard on Vercel
 
-Stack: `FastAPI` `FAISS` `OpenAI API` `SQLAlchemy` `React`
+**Stack:** `FastAPI` `FastMCP` `PostgreSQL` `SQLAlchemy` `LangGraph` `React` `Docker`
 
-🔗 [View the repo →](https://github.com/Himeshxx04/rag-pipeline-optimizer)
+🔗 [View the repo →](https://github.com/Himeshxx04/mcp-artifact-store) · 🌐 [Live Dashboard →](https://mcp-artifact-store.vercel.app)
+
+---
+
+## 🎙️ Featured Project — AI Persona (Voice + Chat Agent)
+
+> A voice + chat AI representative that answers technical questions from a resume/GitHub corpus and books real interview slots — across browser WebRTC, SSE chat, and Twilio PSTN.
+
+**What makes it different:**
+- **"One brain, two channels"** — shared persona package imported in-process by both the FastAPI chat backend and LiveKit voice worker, eliminating HTTP hops
+- **Voice latency: 13s → 1.5s** — parallelized FAISS warm-up with call setup, fixed Deepgram WebSocket reconnects caused by VAD CPU starvation
+- **Hallucination guard** — code-level check replays the LLM tool loop when booking phrases appear without `book_slot` actually firing
+- **End-to-end booking** — Cal.com integration for real interview scheduling across both voice and chat channels
+
+**Stack:** `FastAPI` `LiveKit` `Deepgram` `ElevenLabs` `FAISS` `OpenAI` `Cal.com API`
+
+🔗 [View the repo →](https://github.com/Himeshxx04/himesh-pandey-ai-persona) · 🌐 [Live →](https://himesh-pandey-ai-persona.vercel.app)
 
 ---
 
 ## 🛠️ Tech Stack
 
-**Languages**
-`Python` `JavaScript` `C` `C++`
+**Languages:** `Python` `JavaScript` `C` `C++`
 
-**Backend & APIs**
-`FastAPI` `REST APIs` `Async request handling` `Middleware`
+**Backend & APIs:** `FastAPI` `REST APIs` `Async/Await` `Middleware` `Pydantic` `SQLAlchemy`
 
-**AI & LLM**
-`LangChain` `LangGraph` `RAG` `FAISS` `Prompt Engineering` `LangSmith` `Ollama`
+**AI & LLM:** `LangChain` `LangGraph` `LangSmith` `MCP` `RAG` `FAISS` `LiveKit` `Prompt Engineering`
 
-**Databases & Tools**
-`MySQL` `SQLAlchemy` `Docker` `Git`
+**Databases:** `PostgreSQL` `MySQL` `FAISS Vector Search`
+
+**DevOps & Tools:** `Docker` `Git` `LangSmith` `Ollama` `Wireshark`
 
 ---
 
-## 📌 Other Projects
+## 📊 Other Projects
 
-| Project | Description | Stack |
-|---|---|---|
-| [uparjan-fullstack](https://github.com/Himeshxx04/uparjan-fullstack) | Full-stack fintech web app with FastAPI backend and React frontend | `FastAPI` `React` `MySQL` |
-| [chatbot-streaming](https://github.com/Himeshxx04/chatbot-streaming) | Streaming LLM chatbot with real-time token output | `Python` `LangChain` |
-| [verification_ml-dsa](https://github.com/Himeshxx04/verification_ml-dsa) | Verification of ML-DSA post-quantum digital signature algorithm modules | `Verilog` |
-
----
-
-## 📫 Get in touch
-
-- 💼 [LinkedIn](https://www.linkedin.com/in/himesh-pandey-66968a213/)
-- 📧 pandeyhimesh09@gmail.com
-- 📍 Bangalore, India · Open to internships (Backend / AI Engineering · 2026)
+| Project | What it does | Stack |
+|---------|-------------|-------|
+| [RAG Pipeline Optimizer](https://github.com/Himeshxx04/rag-pipeline-optimizer) | Multi-pipeline RAG with LLM judge evaluation, cost-aware optimization, and hallucination guardrails | FastAPI · FAISS · OpenAI · SQLAlchemy · React |
+| [Sales Forecasting API](https://github.com/Himeshxx04/sales-forecasting-api) | End-to-end time series forecasting with SARIMA, Prophet, XGBoost, LSTM | FastAPI · Prophet · XGBoost · LSTM |
+| [Chatbot Streaming](https://github.com/Himeshxx04/chatbot-streaming) | Real-time streaming chatbot with token-by-token SSE output | FastAPI · LangChain · SSE |
